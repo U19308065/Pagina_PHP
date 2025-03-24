@@ -2,9 +2,9 @@
 <?php
 class Database {
     private $host = "sql10.freesqldatabase.com";
-    private $user = "sql10765427";
-    private $password = "QhG3L9eLZF";
-    private $dbname = "sql10765427";
+    private $user = "sql10769205";
+    private $password = "LhLevLLWk8";
+    private $dbname = "sql10769205";
     private $conn;
 
     public function __construct() {
