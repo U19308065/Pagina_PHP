@@ -44,9 +44,9 @@ if ($result && $result->num_rows > 0) {
                         VALUES ('$fecha', '$temperatura', '$humedad')";
         $localConn->query($insertQuery);
     }
-    echo "Respaldo completado con éxito.";
+    //echo "Respaldo completado con éxito.";
 } else {
-    echo "No se encontraron datos en la base de datos remota.";
+    //echo "No se encontraron datos en la base de datos remota.";
 }
 
 // Cierra las conexiones

@@ -2,7 +2,7 @@
 require_once 'Medicion.php';
 include 'header.php';
 include 'sidebar.php';
-include 'backup.php';
+include 'backup.php'; // Incluir el script de respaldo
 // Establecer la zona horaria a UTC-5 (Lima, Perú)
 date_default_timezone_set('America/Lima');
 $medicion = new Medicion();
