@@ -1,0 +1,14 @@
+-- Crear la tabla mediciones
+CREATE TABLE IF NOT EXISTS mediciones (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    temperatura FLOAT NOT NULL,
+    humedad FLOAT NOT NULL,
+    fecha DATETIME NOT NULL
+);
+
+fosofa3878@anlocc.com
+Host: sql10.freesqldatabase.com
+Database name: sql10772989
+Database user: sql10772989
+Database password: lFrjTbt9Nv
+Port number: 3306
