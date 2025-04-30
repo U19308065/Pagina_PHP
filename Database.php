@@ -1,23 +1,21 @@
-<!-- filepath: c:\xampp\htdocs\xampp\Pagina PHP\Database.php -->
 <?php
 class Database {
-    private $host = "sql10.freesqldatabase.com";
-    private $user = "sql10776098";
-    private $password = "VjnjzUHzil";
-    private $dbname = "sql10776098";
     private $conn;
 
-    public function __construct() {
-        $this->conn = new mysqli($this->host, $this->user, $this->password, $this->dbname);
+    // Constructor que recibe los parámetros de conexión
+    public function __construct($host, $user, $password, $dbname, $port = 3306) {
+        $this->conn = new mysqli($host, $user, $password, $dbname, $port);
         if ($this->conn->connect_error) {
             die("Conexión fallida: " . $this->conn->connect_error);
         }
     }
 
+    // Método para obtener la conexión
     public function getConnection() {
         return $this->conn;
     }
 
+    // Método para cerrar la conexión
     public function closeConnection() {
         $this->conn->close();
     }

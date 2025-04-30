@@ -1,5 +1,5 @@
 <?php
-// filepath: d:\Escritorio\Proyecto MQTT\Pagina PHP\backup.php
+require_once 'Database.php';
 
 // Configuración de la base de datos remota (origen)
 $remoteHost = 'sql10.freesqldatabase.com';
@@ -14,17 +14,13 @@ $localDb = 'b9_38425474_mediciones';
 $localUser = 'b9_38425474';
 $localPass = 'Mahumali&2022';
 
-// Conexión a la base de datos remota
-$remoteConn = new mysqli($remoteHost, $remoteUser, $remotePass, $remoteDb, $remotePort);
-if ($remoteConn->connect_error) {
-    die("Error de conexión a la base de datos remota: " . $remoteConn->connect_error);
-}
+// Crear conexiones usando la clase Database
+$remoteDatabase = new Database($remoteHost, $remoteUser, $remotePass, $remoteDb, $remotePort);
+$localDatabase = new Database($localHost, $localUser, $localPass, $localDb);
 
-// Conexión a la base de datos local
-$localConn = new mysqli($localHost, $localUser, $localPass, $localDb);
-if ($localConn->connect_error) {
-    die("Error de conexión a la base de datos local: " . $localConn->connect_error);
-}
+// Obtener las conexiones
+$remoteConn = $remoteDatabase->getConnection();
+$localConn = $localDatabase->getConnection();
 
 // Consulta para obtener los datos de la base de datos remota
 $query = "SELECT * FROM mediciones"; // Cambia "mediciones" por el nombre de tu tabla
@@ -50,6 +46,6 @@ if ($result && $result->num_rows > 0) {
 }
 
 // Cierra las conexiones
-$remoteConn->close();
-$localConn->close();
+$remoteDatabase->closeConnection();
+$localDatabase->closeConnection();
 ?>
