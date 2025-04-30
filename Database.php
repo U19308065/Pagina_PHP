@@ -2,9 +2,15 @@
 class Database {
     private $conn;
 
-    // Constructor que recibe los parámetros de conexión
-    public function __construct($host, $user, $password, $dbname, $port = 3306) {
-        $this->conn = new mysqli($host, $user, $password, $dbname, $port);
+    // Constructor que recibe las credenciales como un array
+    public function __construct($config) {
+        $this->conn = new mysqli(
+            $config['host'],
+            $config['user'],
+            $config['password'],
+            $config['dbname'],
+            $config['port']
+        );
         if ($this->conn->connect_error) {
             die("Conexión fallida: " . $this->conn->connect_error);
         }

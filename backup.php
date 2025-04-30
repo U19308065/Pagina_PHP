@@ -1,22 +1,12 @@
 <?php
 require_once 'Database.php';
 
-// Configuración de la base de datos remota (origen)
-$remoteHost = 'sql10.freesqldatabase.com';
-$remoteDb = 'sql10776098';
-$remoteUser = 'sql10776098';
-$remotePass = 'VjnjzUHzil';
-$remotePort = 3306;
-
-// Configuración de la base de datos local (destino)
-$localHost = 'sql301.byethost9.com';
-$localDb = 'b9_38425474_mediciones';
-$localUser = 'b9_38425474';
-$localPass = 'Mahumali&2022';
+// Incluir el archivo de configuración
+$config = require 'config.php';
 
 // Crear conexiones usando la clase Database
-$remoteDatabase = new Database($remoteHost, $remoteUser, $remotePass, $remoteDb, $remotePort);
-$localDatabase = new Database($localHost, $localUser, $localPass, $localDb);
+$remoteDatabase = new Database($config['remote']);
+$localDatabase = new Database($config['local']);
 
 // Obtener las conexiones
 $remoteConn = $remoteDatabase->getConnection();
