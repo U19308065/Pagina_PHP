@@ -3,9 +3,9 @@
 
 // Configuración de la base de datos remota (origen)
 $remoteHost = 'sql10.freesqldatabase.com';
-$remoteDb = 'sql10772989';
-$remoteUser = 'sql10772989';
-$remotePass = 'lFrjTbt9Nv';
+$remoteDb = 'sql10776098';
+$remoteUser = 'sql10776098';
+$remotePass = 'VjnjzUHzil';
 $remotePort = 3306;
 
 // Configuración de la base de datos local (destino)
